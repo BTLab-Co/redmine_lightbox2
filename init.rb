@@ -1,7 +1,7 @@
 require 'redmine'
 
-require_dependency 'patches/attachments_patch'
-require_dependency 'hooks/view_layouts_base_html_head_hook'
+require_relative 'lib/redmine_lightbox2/patches/attachments_patch'
+require_relative 'lib/redmine_lightbox2/hooks/view_layouts_base_html_head_hook'
 
 Redmine::Plugin.register :redmine_lightbox2 do
   name 'Redmine Lightbox 2'
