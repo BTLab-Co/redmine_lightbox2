@@ -18,9 +18,10 @@ $(document).ready(function() {
   });
 
   // modify thumbnail links after journal details -> add filename to url to support fancybox preview
-  $("div.journal div.thumbnails a[title]").attr('href', function(i, v){
-    if($(this).attr('title').match(extensionRegexAll)) {
-      return v.replace(/\/attachments\/(\d+)/g,'/attachments/download/$1') + '/' + $(this).attr('title');
+  $("div.journal div.thumbnails a:not([title])").attr('href', function(i, v){
+    imgTitle = $(this).children('img')[0].title;
+    if(imgTitle.match(extensionRegexAll)) {
+      return v.replace(/\/attachments\/(\d+)/g,'/attachments/download/$1') + '/' + imgTitle;
     } else {
       return v;
     }
